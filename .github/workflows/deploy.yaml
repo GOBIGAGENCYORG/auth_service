@@ -35,7 +35,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            docker pull gobigagency/auth-service:main
+            docker pull gobigagency/auth-service:latest
 
             docker stop auth_service || true
             docker rm auth_service || true
@@ -44,4 +44,4 @@ jobs:
               --name auth_service \
               --restart always \
               -p 8001:8000 \
-              gobigagency/auth-service:main
+              gobigagency/auth-service:latest
