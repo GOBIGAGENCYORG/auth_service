@@ -38,5 +38,5 @@ async def login(response: Response, form_data: OAuth2PasswordRequestForm = Depen
 
 @app.get("/validate")
 async def validate(token: str = Depends(authenticate_user)):
-    return RedirectResponse("/")
+    return JSONResponse(status_code=200, content={"message": "Authorized"})
 
